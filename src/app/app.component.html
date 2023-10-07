@@ -20,4 +20,20 @@
 <img [src]="imgSrc" alt="img" width="100px" height="100px">
 <br><br>
 <button (click)="cambiarTitulo()">Cambiar titulo</button>
+
+{{estudianteObj.getNombre()}}
 <br>
+
+<table>
+    <thead>
+        <th>Numero</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let datosEstudiantes of listaEstudiantes;let i=index">
+            <td>{{i}}</td><td>{{datosEstudiantes.getNombre()}}</td>
+            <td>{{datosEstudiantes.getEdad()}}</td>            
+        </tr>
+    </tbody>
+</table>
