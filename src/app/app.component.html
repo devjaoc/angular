@@ -1,39 +1,29 @@
-<h1>Hola Mundo</h1>
-{{title}}
-<br>
-{{title}}
-<br>
-{{title}}
-<br>
-{{title}}
-<br>
-{{title}}
-
-<br>
-<h3>La suma de 10 + 15 ={{getSuma(10,15)}}</h3>
-<input type="text" placeholder="{{textoPlaceholder}}" [(ngModel)]="texto">
-<br>
-{{texto}}
-<br>{{1+2}}
-<input type="text" [placeholder]="textoPlaceholder">
-<br><br>
-<img [src]="imgSrc" alt="img" width="100px" height="100px">
-<br><br>
-<button (click)="cambiarTitulo()">Cambiar titulo</button>
-
-{{estudianteObj.getNombre()}}
-<br>
-
-<table>
-    <thead>
-        <th>Numero</th>
-        <th>Nombre</th>
-        <th>Edad</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let datosEstudiantes of listaEstudiantes;let i=index">
-            <td>{{i}}</td><td>{{datosEstudiantes.getNombre()}}</td>
-            <td>{{datosEstudiantes.getEdad()}}</td>            
-        </tr>
-    </tbody>
-</table>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/']" routerLinkActive="active">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/lista-solicitudes']" routerLinkActive="active">Lista
+                            Solicitudes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/crear-solicitudes']" routerLinkActive="active">Crear nueva
+                            solicitud</a>
+                    </li>                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container mt-4">
+    <router-outlet></router-outlet>
+</div>

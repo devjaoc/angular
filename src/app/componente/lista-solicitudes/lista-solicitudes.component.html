@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Titulo Corto</td>
+            <td>Descripción</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="listaSolicitudes.length==0">
+            <td colspan="3">No hay elementos</td>
+        </tr>
+        <tr *ngFor="let solicitud of listaSolicitudes; let i =index">
+            <td>{{solicitud.id}}</td>
+            <td>{{solicitud.titulo_corto}}</td>
+            <td>{{solicitud.descripcion}}</td>
+            <td>
+                <button class="btn btn-info m-2">Ver</button>
+                <button class="btn btn-danger m-2">Eliminar</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
