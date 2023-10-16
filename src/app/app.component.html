@@ -7,18 +7,10 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" *ngFor="let menu of listaMenu ">
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/']" routerLinkActive="active">Inicio</a>
+                        <a class="nav-link" [routerLink]="menu.href" routerLinkActive="active">{{menu.name}}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/lista-solicitudes']" routerLinkActive="active">Lista
-                            Solicitudes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/crear-solicitudes']" routerLinkActive="active">Crear nueva
-                            solicitud</a>
-                    </li>                   
                 </ul>
             </div>
         </div>
