@@ -3,7 +3,6 @@ export class Solicitud {
     titulo_corto!: string;
     descripcion!: string;
     estado_solicitud_id!: number;
-
     constructor(id: number, titulo_corto: string, descripcion: string, estado_solicitud_id: number) {
         this.id = id;
         this.titulo_corto = titulo_corto;

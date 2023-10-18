@@ -19,5 +19,28 @@ export class ListaSolicitudesComponent {
     this.listaSolicitudes.push(new Solicitud(8, 'Solicitud 8 ', 'Descripcion 8', 1));
     this.listaSolicitudes.push(new Solicitud(9, 'Solicitud 9 ', 'Descripcion 9', 1));
   }
+  deleteSolicitud(pID: number) {
+    this.listaSolicitudes.splice(pID, 1);
+    /*var listaid = this.listaSolicitudes.map((element, index, arr) => {
+      console.log(arr[index]);
+      if (element.id == 2) {
+        return element.id;
+      } else {
+        return null;
+      }
+    });
+    console.log(listaid);
+    console.log("Foreach");
+    this.listaSolicitudes.forEach(element => {
+      console.log(element);
+    });
+    console.log("find");
+    var solicitud = this.listaSolicitudes.find((element) =>
+      element.id === pID
+    );
+    console.log(solicitud);
+  */
+
+  }
 
 }

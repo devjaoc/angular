@@ -1,1 +1,31 @@
-<p>crear-solicitudes works!</p>
+<div class="container">
+    <div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
+        {{mensaje}}
+    </div>
+
+    <form (ngSubmit)="submit()" #forma="ngForm">
+        <div class="col-md-6">
+            <label for="titulo_corto" class="form-label">Titulo corto</label>
+            <input type="text" class="form-control" id="titulo_corto" aria-describedby="Titulo corto"
+                [(ngModel)]="solicitud.titulo_corto" #titulo_corto="ngModel" name="titulo_corto" minlength="3"
+                maxlength="6" [ngClass]="{'is-valid':!titulo_corto.invalid,'is-invalid':titulo_corto.invalid}" required>
+            <div class="invalid-feedback" *ngIf="titulo_corto.invalid && (titulo_corto.dirty || titulo_corto.touched)">
+                <div *ngIf="titulo_corto.errors?.['minlength']">
+                    EL numero minimo es de 3
+                    {{titulo_corto.errors|json}}
+                </div>
+                <div *ngIf="titulo_corto.errors?.['required']">
+                    Introduzaca un titulo corto
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-4">
+                <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">
+                    Enviar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
