@@ -20,6 +20,21 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <label for="titulo_corto" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="descripcion" aria-describedby="Descripcion"
+                [(ngModel)]="solicitud.descripcion" #descripcion="ngModel" name="descripcion" minlength="3"
+                maxlength="6" [ngClass]="{'is-valid':!descripcion.invalid,'is-invalid':descripcion.invalid}" required>
+            <div class="invalid-feedback" *ngIf="descripcion.invalid && (titulo_corto.dirty || descripcion.touched)">
+                <div *ngIf="descripcion.errors?.['minlength']">
+                    EL numero minimo es de 3
+                    {{titulo_corto.errors|json}}
+                </div>
+                <div *ngIf="descripcion.errors?.['required']">
+                    Introduzaca un titulo corto
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12 mt-4">
                 <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">

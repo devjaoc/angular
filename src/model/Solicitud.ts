@@ -9,4 +9,11 @@ export class Solicitud {
         this.descripcion = descripcion;
         this.estado_solicitud_id = estado_solicitud_id;
     }
+    static mapParseListJson(json:[]):Array<Solicitud>{
+        return json.map(
+            (element)=>{
+                return element as Solicitud;
+            }
+        );
+    }
 } 
