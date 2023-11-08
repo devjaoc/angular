@@ -1,4 +1,7 @@
 <div class="container">
+    <div *ngIf="!cargando">
+        <h1> {{solicitud.id<0?'Crear nueva solicitud':'Editar solicitud'+solicitud.id}}</h1>
+    
     <div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
         {{mensaje}}
     </div>
@@ -37,10 +40,11 @@
         </div>
         <div class="row">
             <div class="col-12 mt-4">
-                <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">
-                    Enviar
+                <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">                   
+                    {{solicitud.id<0?'Agregar':'Actualizar'}}
                 </button>
             </div>
         </div>
     </form>
+</div>
 </div>

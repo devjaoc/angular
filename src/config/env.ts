@@ -25,6 +25,6 @@ export namespace env {
     { path: 'lista-solicitudes', component: ListaSolicitudesComponent },
     { path: 'crear-solicitudes', component: CrearSolicitudesComponent },
     { path: 'editar-solicitud/:id', component: CrearSolicitudesComponent },
-    { path: 'ver-solicitudes', component: SolicitudesComponent },
+    { path: 'ver-solicitudes/:id', component: SolicitudesComponent },
   ];
 }
