@@ -3,6 +3,8 @@ import { CrearSolicitudesComponent } from 'src/app/componente/crear-solicitudes/
 import { HomeComponent } from 'src/app/componente/home/home.component';
 import { ListaSolicitudesComponent } from 'src/app/componente/lista-solicitudes/lista-solicitudes.component';
 import { SolicitudesComponent } from 'src/app/componente/solicitudes/solicitudes.component';
+import { authGuardGuard } from 'src/app/guards/auth-guard.guard';
+import { LoginComponent } from 'src/app/login/login.component';
 
 export class ItemMenu {
   public id!: number;
@@ -21,10 +23,11 @@ export namespace env {
     new ItemMenu(3, 'Crear Solicitudes', 'crear-solicitudes'),
   ];
   export const routers: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'lista-solicitudes', component: ListaSolicitudesComponent },
-    { path: 'crear-solicitudes', component: CrearSolicitudesComponent },
-    { path: 'editar-solicitud/:id', component: CrearSolicitudesComponent },
-    { path: 'ver-solicitudes/:id', component: SolicitudesComponent },
+    { path: '', component: HomeComponent ,canActivate:[authGuardGuard]},
+    { path: 'login', component: LoginComponent },
+    { path: 'lista-solicitudes', component: ListaSolicitudesComponent ,canActivate:[authGuardGuard]},
+    { path: 'crear-solicitudes', component: CrearSolicitudesComponent ,canActivate:[authGuardGuard]},
+    { path: 'editar-solicitud/:id', component: CrearSolicitudesComponent ,canActivate:[authGuardGuard]},
+    { path: 'ver-solicitudes/:id', component: SolicitudesComponent ,canActivate:[authGuardGuard]},
   ];
 }
