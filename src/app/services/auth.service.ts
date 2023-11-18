@@ -36,7 +36,6 @@ export class AuthService {
     return this.isLogin;
   }
   logout() {
-    //localStorage.removeItem('userToken');
     return this.http.post(this.logoutUrl, {});
   }
   setTokeSecretKey(tokeSecret: string) {

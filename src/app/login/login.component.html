@@ -1,3 +1,6 @@
+<div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
+  {{mensaje}}
+</div>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="exampleInputEmail1">Email</label>

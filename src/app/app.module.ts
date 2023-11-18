@@ -10,6 +10,7 @@ import { ListaSolicitudesComponent } from './componente/lista-solicitudes/lista-
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { CerrarSesionComponent } from './componente/cerrar-sesion/cerrar-sesion.component';
+import { CambiarPasswordComponent } from './componente/cambiar-password/cambiar-password.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CerrarSesionComponent } from './componente/cerrar-sesion/cerrar-sesion.
     CrearSolicitudesComponent,
     ListaSolicitudesComponent,
     LoginComponent,
-    CerrarSesionComponent
+    CerrarSesionComponent,
+    CambiarPasswordComponent
   ],
   imports: [
     BrowserModule,
