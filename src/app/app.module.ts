@@ -11,6 +11,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { CerrarSesionComponent } from './componente/cerrar-sesion/cerrar-sesion.component';
 import { CambiarPasswordComponent } from './componente/cambiar-password/cambiar-password.component';
+import { EmpleadoComponent } from './componente/empleado/empleado.component';
+import { ProductoComponent } from './componente/producto/producto.component';
+import { ProveedorComponent } from './componente/proveedor/proveedor.component';
+import { VentaComponent } from './componente/venta/venta.component';
+import { VentaDetalleComponent } from './componente/venta-detalle/venta-detalle.component';
+import { EmpleadoCrearComponent } from './componente/empleado-crear/empleado-crear.component';
+import { EmpleadoSolicitudComponent } from './componente/empleado-solicitud/empleado-solicitud.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +28,14 @@ import { CambiarPasswordComponent } from './componente/cambiar-password/cambiar-
     ListaSolicitudesComponent,
     LoginComponent,
     CerrarSesionComponent,
-    CambiarPasswordComponent
+    CambiarPasswordComponent,
+    EmpleadoComponent,
+    ProductoComponent,
+    ProveedorComponent,
+    VentaComponent,
+    VentaDetalleComponent,
+    EmpleadoCrearComponent,
+    EmpleadoSolicitudComponent
   ],
   imports: [
     BrowserModule,

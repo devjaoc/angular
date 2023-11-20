@@ -6,6 +6,13 @@ import { SolicitudesComponent } from 'src/app/componente/solicitudes/solicitudes
 import { authGuardGuard } from 'src/app/guards/auth-guard.guard';
 import { LoginComponent } from 'src/app/login/login.component';
 import { CerrarSesionComponent } from 'src/app/componente/cerrar-sesion/cerrar-sesion.component';
+import { EmpleadoComponent } from 'src/app/componente/empleado/empleado.component';
+import { ProductoComponent } from 'src/app/componente/producto/producto.component';
+import { ProveedorComponent } from 'src/app/componente/proveedor/proveedor.component';
+import { VentaComponent } from 'src/app/componente/venta/venta.component';
+import { VentaDetalleComponent } from 'src/app/componente/venta-detalle/venta-detalle.component';
+import { EmpleadoSolicitudComponent } from 'src/app/componente/empleado-solicitud/empleado-solicitud.component';
+import { EmpleadoCrearComponent } from 'src/app/componente/empleado-crear/empleado-crear.component';
 
 export class ItemMenu {
   public id!: number;
@@ -20,9 +27,17 @@ export class ItemMenu {
 export namespace env {
   export const menu: Array<ItemMenu> = [
     new ItemMenu(1, 'Inicio', '/'),
-    new ItemMenu(2, 'Lista Solicitudes', 'lista-solicitudes'),
-    new ItemMenu(3, 'Crear Solicitudes', 'crear-solicitudes'),
-    new ItemMenu(4, 'Cerrar sesion', 'cerrar-sesion')
+    // new ItemMenu(2, 'Lista Solicitudes', 'lista-solicitudes'),
+    // new ItemMenu(3, 'Crear Solicitudes', 'crear-solicitudes'),
+    // new ItemMenu(4, 'Cerrar sesion', 'cerrar-sesion')
+    new ItemMenu(2, 'Empleado', 'empleado'),
+    new ItemMenu(3, 'Producto', 'producto'),
+    new ItemMenu(4, 'Proveedor', 'proveedor'),
+    new ItemMenu(5, 'Venta', 'venta'),
+    new ItemMenu(6, 'Venta Detalle', 'venta-detalle'),
+    new ItemMenu(7, 'Lista Solicitudes', 'lista-solicitudes'),
+    new ItemMenu(8, 'Crear Solicitudes', 'crear-solicitudes'),
+
   ];
   export const routers: Routes = [
     { path: '', component: HomeComponent ,canActivate:[authGuardGuard]},
@@ -31,6 +46,17 @@ export namespace env {
     { path: 'crear-solicitudes', component: CrearSolicitudesComponent ,canActivate:[authGuardGuard]},
     { path: 'editar-solicitud/:id', component: CrearSolicitudesComponent ,canActivate:[authGuardGuard]},
     { path: 'ver-solicitudes/:id', component: SolicitudesComponent ,canActivate:[authGuardGuard]},
-    { path: 'cerrar-sesion', component: CerrarSesionComponent }
+    { path: 'cerrar-sesion', component: CerrarSesionComponent },
+
+    // Empleado
+    { path: 'empleado', component: EmpleadoComponent, canActivate:[authGuardGuard]},
+    { path: 'crear-empleado', component: EmpleadoCrearComponent ,canActivate:[authGuardGuard]},
+    { path: 'editar-empleado/:id', component: EmpleadoCrearComponent ,canActivate:[authGuardGuard]},
+    { path: 'ver-empleado/:id', component: EmpleadoSolicitudComponent,canActivate:[authGuardGuard]},
+
+    { path: 'producto', component: ProductoComponent },
+    { path: 'proveedor', component: ProveedorComponent },
+    { path: 'venta', component: VentaComponent },
+    { path: 'venta-detalle', component: VentaDetalleComponent}
   ];
 }
