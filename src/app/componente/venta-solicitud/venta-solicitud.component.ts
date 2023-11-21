@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
-import { Empleado } from 'src/model/Empleado';
+import { Venta } from 'src/model/Venta';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { EmpleadoService } from 'src/app/servieces/empleado.service';
+import { VentaService } from 'src/app/servieces/venta.service';
 
 
 @Component({
-  selector: 'app-empleado-solicitud',
-  templateUrl: './empleado-solicitud.component.html',
-  styleUrls: ['./empleado-solicitud.component.css']
+  selector: 'app-venta-solicitud',
+  templateUrl: './venta-solicitud.component.html',
+  styleUrls: ['./venta-solicitud.component.css']
 })
-export class EmpleadoSolicitudComponent {
+export class VentaSolicitudComponent {
   private cargando: boolean = true;
-  public empleado?: Empleado;
+  public venta?: Venta;
 
   constructor(
-    private solicitudService: EmpleadoService,
+    private solicitudService:VentaService,
     private activaRouter: ActivatedRoute,
     private router: Router
   ) {
@@ -22,7 +22,7 @@ export class EmpleadoSolicitudComponent {
       .get(Number(activaRouter.snapshot.paramMap.get('id')))
       .subscribe({
         next: (resp) => {
-          this.empleado = resp.data as Empleado;
+          this.venta = resp.data as Venta;
           console.log(resp);
           this.cargando = false;
         },
@@ -35,7 +35,7 @@ export class EmpleadoSolicitudComponent {
   eliminarSolicitud(pID: number) {
     this.solicitudService.delete(pID).subscribe({
       next: (resp) => {
-        this.router.navigate(['empleado']);
+        this.router.navigate(['venta']);
       },
       error: (err) => {
         console.log(err.error.msg);
