@@ -17,6 +17,8 @@ export class AppComponent {
   texto: string = "";
   estudianteObj!: Estudiante;
   listaEstudiantes: Estudiante[] = [];
+  isUserLoggedIn: boolean = false;
+
 
   constructor(private authService: AuthService) {
     this.listaMenu = env.menu.filter(item => {
@@ -24,6 +26,8 @@ export class AppComponent {
       // o solo el elemento con id 1 si no está logueado
       return this.authService.isUserLogin() || item.id === 1;
     });
+    
+    this.isUserLoggedIn = this.authService.isUserLogin();
   }
 
   getSuma(numero1: number, numero2: number) {
@@ -32,7 +36,8 @@ export class AppComponent {
   cambiarTitulo() {
     this.title = this.texto;
   }
-  isUserLoggedIn(): boolean {
-    return this.authService.isUserLogin();
+
+  cerrarsesion(){
+    return this.authService.logout();
   }
 }

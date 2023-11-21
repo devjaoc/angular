@@ -37,9 +37,6 @@ export namespace env {
     new ItemMenu(4, 'Proveedor', 'proveedor'),
     new ItemMenu(5, 'Venta', 'venta'),
     new ItemMenu(6, 'Venta Detalle', 'venta-detalle'),
-    new ItemMenu(7, 'Lista Solicitudes', 'lista-solicitudes'),
-    new ItemMenu(8, 'Crear Solicitudes', 'crear-solicitudes'),
-
   ];
   export const routers: Routes = [
     { path: '', component: HomeComponent ,canActivate:[authGuardGuard]},
@@ -48,7 +45,7 @@ export namespace env {
     { path: 'crear-solicitudes', component: CrearSolicitudesComponent ,canActivate:[authGuardGuard]},
     { path: 'editar-solicitud/:id', component: CrearSolicitudesComponent ,canActivate:[authGuardGuard]},
     { path: 'ver-solicitudes/:id', component: SolicitudesComponent ,canActivate:[authGuardGuard]},
-    { path: 'cerrar-sesion', component: CerrarSesionComponent },
+    { path: 'cerrar-sesion', component: LoginComponent },
 
     // Empleado
     { path: 'empleado', component: EmpleadoComponent, canActivate:[authGuardGuard]},
