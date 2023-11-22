@@ -13,6 +13,8 @@ import { VentaComponent } from 'src/app/componente/venta/venta.component';
 import { VentaDetalleComponent } from 'src/app/componente/venta-detalle/venta-detalle.component';
 import { EmpleadoSolicitudComponent } from 'src/app/componente/empleado-solicitud/empleado-solicitud.component';
 import { EmpleadoCrearComponent } from 'src/app/componente/empleado-crear/empleado-crear.component';
+//import { ProductoSolicitudComponent } from 'src/app/componente/producto-solicitud/producto-solicitud.component';
+import { ProductoCrearComponent } from 'src/app/componente/producto-crear/producto-crear.component';
 
 export class ItemMenu {
   public id!: number;
@@ -54,7 +56,12 @@ export namespace env {
     { path: 'editar-empleado/:id', component: EmpleadoCrearComponent ,canActivate:[authGuardGuard]},
     { path: 'ver-empleado/:id', component: EmpleadoSolicitudComponent,canActivate:[authGuardGuard]},
 
-    { path: 'producto', component: ProductoComponent },
+    // Producto
+    { path: 'producto', component: ProductoComponent, canActivate:[authGuardGuard]},
+    { path: 'crear-producto', component: ProductoCrearComponent ,canActivate:[authGuardGuard]},
+    { path: 'editar-producto/:id', component: ProductoCrearComponent ,canActivate:[authGuardGuard]},
+    { path: 'ver-producto/:id', component: EmpleadoSolicitudComponent,canActivate:[authGuardGuard]},
+
     { path: 'proveedor', component: ProveedorComponent },
     { path: 'venta', component: VentaComponent },
     { path: 'venta-detalle', component: VentaDetalleComponent}

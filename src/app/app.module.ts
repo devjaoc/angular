@@ -18,6 +18,7 @@ import { VentaComponent } from './componente/venta/venta.component';
 import { VentaDetalleComponent } from './componente/venta-detalle/venta-detalle.component';
 import { EmpleadoCrearComponent } from './componente/empleado-crear/empleado-crear.component';
 import { EmpleadoSolicitudComponent } from './componente/empleado-solicitud/empleado-solicitud.component';
+import { ProductoCrearComponent } from './componente/producto-crear/producto-crear.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EmpleadoSolicitudComponent } from './componente/empleado-solicitud/empl
     VentaComponent,
     VentaDetalleComponent,
     EmpleadoCrearComponent,
-    EmpleadoSolicitudComponent
+    EmpleadoSolicitudComponent,
+    ProductoCrearComponent
   ],
   imports: [
     BrowserModule,
