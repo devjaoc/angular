@@ -1,1 +1,33 @@
-<p>venta works!</p>
+<div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
+    {{mensaje}}
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Fecha</td>
+            <td>Total</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="listaventas.length==0">
+            <td colspan="3">No hay elementos</td>
+        </tr>
+        <tr *ngFor="let venta of listaventas; let i =index">
+            <td>{{venta.VentaID}}</td>
+            <td>{{venta.Fecha}}</td>
+            <td>{{venta.Total}}</td>
+            <td>
+                <button class="btn btn-info m-2" (click)="editSolicitud(venta.VentaID)">Editar</button>
+                <button class="btn btn-info m-2" (click)="mostrarSolicitud(venta.VentaID)">Ver</button>
+                <button (click)="deleteSolicitud(venta.VentaID)" class="btn btn-danger m-2">Eliminar</button>
+            </td>
+        </tr>
+
+    </tbody>
+    <div class="card">
+        <div class="card-body">
+          <a href="/crear-venta" class="btn btn-info m-2">Agregar</a> 
+        </div>
+    </div>
+</table>

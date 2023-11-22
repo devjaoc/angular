@@ -1,0 +1,9 @@
+<div *ngIf="venta" class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Numero de solicitud: {{venta.VentaID}}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{venta.Fecha}}</h6>
+      <p class="card-text">{{venta.Total}}</p>
+      <a href="/editar-venta/{{venta.VentaID}}" class="btn btn-info m-2">Editar</a>      
+      <a (click)="eliminarSolicitud(venta.VentaID)" class="btn btn-danger m-2 ">Eliminar</a>
+    </div>
+</div>

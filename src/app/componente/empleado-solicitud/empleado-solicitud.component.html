@@ -5,7 +5,7 @@
       <h6 class="card-subtitle mb-2 text-body-secondary">{{empleado.Apellido}}</h6>
       <p class="card-text">{{empleado.Posicion}}</p>
       <p class="card-text">{{empleado.FechaContratacion}}</p>
-      <a href="/editar-solicitud/{{empleado.EmpleadoID}}" class="btn btn-info m-2">Editar</a>      
+      <a href="/editar-empleado/{{empleado.EmpleadoID}}" class="btn btn-info m-2">Editar</a>      
       <a (click)="eliminarSolicitud(empleado.EmpleadoID)" class="btn btn-danger m-2 ">Eliminar</a>
     </div>
 </div>

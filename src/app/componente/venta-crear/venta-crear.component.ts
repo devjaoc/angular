@@ -1,30 +1,31 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EmpleadoService } from 'src/app/servieces/empleado.service';
-import { Empleado } from 'src/model/Empleado';
+import { VentaService } from 'src/app/servieces/venta.service';
+import { Venta } from 'src/model/Venta';
 
 @Component({
-  selector: 'app-empleado-crear',
-  templateUrl: './empleado-crear.component.html',
-  styleUrls: ['./empleado-crear.component.css']
+  selector: 'app-venta-crear',
+  templateUrl: './venta-crear.component.html',
+  styleUrls: ['./venta-crear.component.css']
 })
-export class EmpleadoCrearComponent {
-  empleado!: Empleado;
+export class VentaCrearComponent {
+  venta!: Venta;
   mensaje!: string;
   cargando: boolean = false;
   constructor(
-    private solicitudService: EmpleadoService,
+    private solicitudService: VentaService,
     private activaRouter: ActivatedRoute
   ) {
     //tener el id parametro
     //en caso que sea null
+  
     if (activaRouter.snapshot.paramMap.get('id') != null) {
       this.cargando = true;
       solicitudService
         .get(Number(activaRouter.snapshot.paramMap.get('id')))
         .subscribe({
           next: (resp) => {
-            this.empleado = resp.data as Empleado;
+            this.venta = resp.data as Venta;
             this.cargando = false;
             //this.solicitud = new Solicitud(resp.data.id, resp.data.titulo_corto, resp.data.descripcion, 0);
           },
@@ -34,26 +35,27 @@ export class EmpleadoCrearComponent {
           },
         });
     } else {
-      this.empleado = new Empleado(-1, '', '', '', new Date);
+      this.venta = new Venta(-1, new Date, 0);
     }
   }
   submit() {
     //servidor.crearSolicitud(this.solicitud);
-    //this.empleado.EmpleadoID = 1;
-    if (this.empleado.EmpleadoID < 0) {
-      this.solicitudService.create(this.empleado).subscribe({
+    //this.venta.VentaID = 1;
+    if (this.venta.VentaID < 0) {
+      this.solicitudService.create(this.venta).subscribe({
         next: (resp) => {
           console.log(resp);
           this.mensaje = 'Solicitud Creada';
         },
         error: (err) => {
           console.log(err.error.msg);
+          this.mensaje = 'Error al crear la Solicitud';
           this.mensaje = err.error.msg;
         },
       });
     } else {
       this.solicitudService
-        .update(this.empleado.EmpleadoID, this.empleado)
+        .update(this.venta.VentaID, this.venta)
         .subscribe({
           next: (resp) => {
             console.log(resp);
