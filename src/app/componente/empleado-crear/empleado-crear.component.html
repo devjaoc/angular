@@ -1,0 +1,67 @@
+<div class="container">
+    <div *ngIf="!cargando">
+        <section class="text-center text-lg-start">
+            <div class="card px-5 bg-dark">
+                <div class="row g-0 d-flex align-items-center ">
+                    <div class="col-lg-8">
+                        <div class="card-body py-5">
+                            <form (ngSubmit)="submit()" #forma="ngForm">
+                                <h1> {{empleado.EmpleadoID<0?'Añadir nuevo empleado ':'Editar empleado '+empleado.EmpleadoID}}</h1>
+                                <div class="col-md-9">
+                                    <label for="Nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="Nombre" aria-describedby="Nombre"
+                                        [(ngModel)]="empleado.Nombre" #Nombre="ngModel" name="Nombre"
+                                        [ngClass]="{'is-valid':!Nombre.invalid,'is-invalid':Nombre.invalid}">
+                                </div>
+                                <div class="col-md-9">
+                                    <label for="Apellido" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control"
+                                        id="Apellido" aria-describedby="Apellido"
+                                        [(ngModel)]="empleado.Apellido"
+                                        #Apellido="ngModel" name="Apellido"
+                                        [ngClass]="{'is-valid':!Apellido.invalid,'is-invalid':Apellido.invalid}">
+                                </div>
+                                <div class="col-md-9">
+                                    <label for="Posicion" class="form-label">Posicion o Cargo</label>
+                                    <input type="text" class="form-control"
+                                        id="Posicion" aria-describedby="Posicion"
+                                        [(ngModel)]="empleado.Posicion"
+                                        #Posicion="ngModel" name="Posicion"
+                                        [ngClass]="{'is-valid':!Posicion.invalid,'is-invalid':Posicion.invalid}">
+                                </div>
+                                <div class="col-md-9">
+                                    <label for="FechaContratacion" class="form-label">Fecha de Contratacion</label>
+                                    <input type="Date" class="form-control" min="2018-01-01" max="2018-12-31"
+                                        id="FechaContratacion" aria-describedby="FechaContratacion"
+                                        [(ngModel)]="empleado.FechaContratacion"
+                                        #FechaContratacion="ngModel" name="FechaContratacion"
+                                        [ngClass]="{'is-valid':!FechaContratacion.invalid,'is-invalid':FechaContratacion.invalid}">
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 mt-4">
+                                        <button type="submit"
+                                            [disabled]="!forma.valid"
+                                            class="btn btn-primary">
+                                            {{empleado.EmpleadoID<0?'Agregar':'Actualizar'}}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-4 d-none d-lg-flex card px-5 bg-dark border-0">
+                        <h1>Imagen</h1>
+                        <div>
+                            <img *ngIf="imagenProductoSeleccionado" [src]="imagenProductoSeleccionado" alt="Imagen del Producto" class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5"/>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">ta
+                {{mensaje}}
+            </div>
+        </section>
+
+    </div>
+</div>

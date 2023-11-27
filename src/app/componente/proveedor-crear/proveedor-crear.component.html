@@ -1,0 +1,66 @@
+<div class="container">
+    <div *ngIf="!cargando">
+        <section class="text-center text-lg-start">
+            <div class="card px-5 bg-dark">
+                <div class="row g-0 d-flex align-items-center ">
+                    <div class="col-lg-8">
+                        <div class="card-body py-5">
+                            <form (ngSubmit)="submit()" #forma="ngForm">
+                                <h1> {{proveedor.ProveedorID<0?'Añadir nuevo proveedor ':'Editar proveedor '+proveedor.ProveedorID}}</h1>
+                                <div class="col-md-9">
+                                    <label for="Nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="Nombre" aria-describedby="Nombre"
+                                        [(ngModel)]="proveedor.Nombre" #Nombre="ngModel" name="Nombre"
+                                        [ngClass]="{'is-valid':!Nombre.invalid,'is-invalid':Nombre.invalid}">
+                                </div>
+                                <div class="col-md-9">
+                                    <label for="Contacto" class="form-label">Contacto</label>
+                                    <input type="text" class="form-control"
+                                        id="Contacto" aria-describedby="Contacto"
+                                        [(ngModel)]="proveedor.Contacto"
+                                        #Contacto="ngModel" name="Contacto"
+                                        [ngClass]="{'is-valid':!Contacto.invalid,'is-invalid':Contacto.invalid}">
+                                </div>
+                                <div class="col-md-9">
+                                    <label for="Telefono" class="form-label">Telefono</label>
+                                    <input type="number" class="form-control"
+                                        id="Telefono" aria-describedby="Telefono"
+                                        [(ngModel)]="proveedor.Telefono"
+                                        #Telefono="ngModel" name="Telefono"
+                                        [ngClass]="{'is-valid':!Telefono.invalid,'is-invalid':Telefono.invalid}">
+                                </div>
+                                <div class="col-md-9">
+                                    <label for="Direccion" class="form-label">Direccion</label>
+                                    <input type="text" class="form-control"
+                                        id="Direccion" aria-describedby="Direccion"
+                                        [(ngModel)]="proveedor.Direccion"
+                                        #Direccion="ngModel" name="Direccion"
+                                        [ngClass]="{'is-valid':!Direccion.invalid,'is-invalid':Direccion.invalid}">
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mt-4">
+                                        <button type="submit"
+                                            [disabled]="!forma.valid"
+                                            class="btn btn-primary">
+                                            {{proveedor.ProveedorID<0?'Agregar':'Actualizar'}}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-4 d-none d-lg-flex card px-5 bg-dark border-0">
+                        <h1>Imagen</h1>
+                        <div>
+                            <img *ngIf="imagenProductoSeleccionado" [src]="imagenProductoSeleccionado" alt="Imagen del Producto" class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5"/>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">ta
+                {{mensaje}}
+            </div>
+        </section>
+
+    </div>
+</div>

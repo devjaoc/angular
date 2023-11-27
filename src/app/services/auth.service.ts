@@ -9,6 +9,7 @@ export class AuthService {
   private hosting: string = 'http://127.0.0.1:8000/';
   private action: string = 'api/auth/login';
   private isLogin: boolean = false;
+  private logoutUrl = 'api/auth/cerrar-sesion'; 
   private authSecretKey: string = 'Token_Bearer';
   private options: any;
 
@@ -28,20 +29,19 @@ export class AuthService {
       {
         email: email,
         password: password,
-      },
-      this.options
+      }
     );
   }
   isUserLogin(): boolean {
     return this.isLogin;
   }
-  logout(): void {
-    localStorage.removeItem(this.authSecretKey);
-    this.isLogin = false;
+  logout() {
+    return this.http.post(this.logoutUrl, {});
   }
   setTokeSecretKey(tokeSecret: string) {
     localStorage.setItem(this.authSecretKey, tokeSecret);
     this.isLogin = true;
   }
+
   
 }

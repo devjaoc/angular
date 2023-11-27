@@ -1,0 +1,25 @@
+<div *ngIf="venta">
+  <section class="text-center text-lg-start">
+    <div class="card px-5 bg-dark">
+        <div class="row g-0 d-flex align-items-center ">
+            <div class="col-lg-8">
+                <div class="card-body py-5">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Numero de solicitud: {{venta.VentaID}}</h4>
+                  </div>
+                  <h6 class="">{{venta.Fecha}}</h6>
+                  <p class="card-text">{{venta.Total}}</p>
+                  <a href="/editar-venta/{{venta.VentaID}}" class="btn btn-info m-2">Editar</a>
+                  <a (click)="eliminarSolicitud(venta.VentaID)" class="btn btn-danger m-2 ">Eliminar</a>
+                </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-flex card px-5 bg-dark border-0">
+                <div>
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F3o6Mb9rUQ5v4ZnBbzO%2Fgiphy.gif&f=1&nofb=1&ipt=12b874adc52903de0f88a373457e5940e366b82464eef551e01cf4a92e25c193&ipo=images"
+                    alt="Trendy Pants and Shoes" class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>

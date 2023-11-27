@@ -1,0 +1,31 @@
+<div *ngIf="proveedor">
+  <section class="text-center text-lg-start">
+      <div class="card px-5 bg-dark">
+          <div class="row g-0 d-flex align-items-center ">
+              <div class="col-lg-8">
+                  <div class="card-body py-5">
+                      <div class="d-flex justify-content-between align-items-center mb-3">
+                          <h4 class="text-right">Numero de Prodcuto: {{proveedor.ProveedorID}}</h4>
+                      </div>
+
+                      <h6 class="">NOMBRE: {{proveedor.Nombre}}</h6>
+                      <h6 class="">Contacto: {{proveedor.Contacto}}</h6>
+                      <h6 class="">Telefono: {{proveedor.Telefono}}</h6>
+                      <h6 class="">Direccion: {{proveedor.Direccion}}</h6>
+
+                      <a href="/editar-proveedor/{{proveedor.ProveedorID}}"
+                          class="btn btn-info m-2">Editar</a>
+                      <a (click)="eliminarSolicitud(proveedor.ProveedorID)"
+                          class="btn btn-danger m-2 ">Eliminar</a>
+                  </div>
+              </div>
+              <!-- <div class="col-lg-4 d-none d-lg-flex card px-5 bg-dark border-0">
+                  <div>
+                      <img src="{{proveedor.imagen}}" alt="Producto"
+                          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+                  </div>
+              </div> -->
+          </div>
+      </div>
+  </section>
+</div>
