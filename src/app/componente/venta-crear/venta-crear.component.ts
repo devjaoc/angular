@@ -10,7 +10,7 @@ import { Venta } from 'src/model/Venta';
 })
 export class VentaCrearComponent {
   venta!: Venta;
-  mensaje!: string;
+  public mensaje?: string;
   cargando: boolean = false;
   constructor(
     private solicitudService: VentaService,
@@ -45,11 +45,11 @@ export class VentaCrearComponent {
       this.solicitudService.create(this.venta).subscribe({
         next: (resp) => {
           console.log(resp);
-          this.mensaje = 'Solicitud Creada';
+          this.mensaje = 'Venta Creada';
         },
         error: (err) => {
           console.log(err.error.msg);
-          this.mensaje = 'Error al crear la Solicitud';
+          this.mensaje = 'Error al crear la Venta';
           this.mensaje = err.error.msg;
         },
       });
@@ -59,7 +59,8 @@ export class VentaCrearComponent {
         .subscribe({
           next: (resp) => {
             console.log(resp);
-            this.mensaje = 'Solicitud Actualizada';
+            this.mensaje = 'Venta Actualizada';
+            this.hideMessageAfterDelay(3000);
           },
           error: (err) => {
             console.log(err.error.msg);
@@ -69,5 +70,11 @@ export class VentaCrearComponent {
     }
     //modificar para que si tiene definido id elemento solicitud se actualice si no
     //se crea nuevo
+  }
+
+  hideMessageAfterDelay(delay: number) {
+    setTimeout(() => {
+      this.mensaje = undefined;
+    }, delay);
   }
 }

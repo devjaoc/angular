@@ -16,6 +16,11 @@ import { EmpleadoCrearComponent } from 'src/app/componente/empleado-crear/emplea
 import { ProductoCrearComponent } from 'src/app/componente/producto-crear/producto-crear.component';
 import { VentaCrearComponent } from 'src/app/componente/venta-crear/venta-crear.component';
 import { VentaSolicitudComponent } from 'src/app/componente/venta-solicitud/venta-solicitud.component';
+import { VentaDetalleSolicitudComponent } from 'src/app/componente/venta-detalle-solicitud/venta-detalle-solicitud.component';
+import { VentaDetalleCrearComponent } from 'src/app/componente/venta-detalle-crear/venta-detalle-crear.component';
+import { ProductoSolicitudComponent } from 'src/app/componente/producto-solicitud/producto-solicitud.component';
+import { ProveedorCrearComponent } from 'src/app/componente/proveedor-crear/proveedor-crear.component';
+import { ProveedorSolicitudComponent } from 'src/app/componente/proveedor-solicitud/proveedor-solicitud.component';
 
 export class ItemMenu {
   public id!: number;
@@ -36,8 +41,8 @@ export namespace env {
     new ItemMenu(2, 'Empleado', 'empleado'),
     new ItemMenu(3, 'Producto', 'producto'),
     new ItemMenu(4, 'Proveedor', 'proveedor'),
-    new ItemMenu(5, 'Venta', 'venta'),
-    new ItemMenu(6, 'Venta Detalle', 'venta-detalle'),
+    //new ItemMenu(5, 'Venta', 'venta'),
+    new ItemMenu(5, 'Venta', 'venta-detalle'),
   ];
   export const routers: Routes = [
     { path: '', component: HomeComponent ,canActivate:[authGuardGuard]},
@@ -58,13 +63,25 @@ export namespace env {
     { path: 'producto', component: ProductoComponent, canActivate:[authGuardGuard]},
     { path: 'crear-producto', component: ProductoCrearComponent ,canActivate:[authGuardGuard]},
     { path: 'editar-producto/:id', component: ProductoCrearComponent ,canActivate:[authGuardGuard]},
-    { path: 'ver-producto/:id', component: EmpleadoSolicitudComponent,canActivate:[authGuardGuard]},
+    { path: 'ver-producto/:id', component: ProductoSolicitudComponent,canActivate:[authGuardGuard]},
 
     // Venta
     { path: 'venta', component: VentaComponent, canActivate:[authGuardGuard]},
     { path: 'crear-venta', component: VentaCrearComponent ,canActivate:[authGuardGuard]},
     { path: 'editar-venta/:id', component: VentaCrearComponent ,canActivate:[authGuardGuard]},
     { path: 'ver-venta/:id', component: VentaSolicitudComponent,canActivate:[authGuardGuard]},
+
+    // Venta-detalle
+    { path: 'venta-detalle', component: VentaDetalleComponent, canActivate:[authGuardGuard]},
+    { path: 'crear-venta-detalle', component: VentaDetalleCrearComponent ,canActivate:[authGuardGuard]},
+    { path: 'editar-venta-detalle/:id', component: VentaDetalleCrearComponent ,canActivate:[authGuardGuard]},
+    { path: 'ver-venta-detalle/:id', component: VentaDetalleSolicitudComponent,canActivate:[authGuardGuard]},
+
+    //proveedor
+    { path: 'proveedor', component: ProveedorComponent, canActivate:[authGuardGuard]},
+    { path: 'crear-proveedor', component: ProveedorCrearComponent ,canActivate:[authGuardGuard]},
+    { path: 'editar-proveedor/:id', component: ProveedorCrearComponent ,canActivate:[authGuardGuard]},
+    { path: 'ver-proveedor/:id', component: ProveedorSolicitudComponent,canActivate:[authGuardGuard]},
 
   ];
 }

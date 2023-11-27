@@ -41,6 +41,8 @@ export class VentaComponent {
           this.bloqueoBtnEliminar = false;
           console.log(resp);
           this.mensaje = 'Registro Eliminado';
+          this.hideMessageAfterDelay(3000);
+
           this.ventaServicio.getList().subscribe({
             next: (resp) => {
               console.log(resp);
@@ -56,5 +58,11 @@ export class VentaComponent {
         },
       });
     }
+  }
+
+  hideMessageAfterDelay(delay: number) {
+    setTimeout(() => {
+      this.mensaje = undefined;
+    }, delay);
   }
 }

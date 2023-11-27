@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
-import { ProductoService } from 'src/app/servieces/producto.service';
-import { Producto } from 'src/model/Producto';
+import { ActivatedRoute } from '@angular/router';
+import { ProveedorService } from 'src/app/servieces/proveedor.service';
+import { Proveedor } from 'src/model/Proveedor';
 
 @Component({
-  selector: 'app-producto-crear',
-  templateUrl: './producto-crear.component.html',
-  styleUrls: ['./producto-crear.component.css']
+  selector: 'app-proveedor-crear',
+  templateUrl: './proveedor-crear.component.html',
+  styleUrls: ['./proveedor-crear.component.css']
 })
-export class ProductoCrearComponent {
-  producto!: Producto;
+export class ProveedorCrearComponent {
+  
+
+  proveedor!: Proveedor;
   mensaje!: string;
   cargando: boolean = false;
   constructor(
-    private solicitudService: ProductoService,
+    private solicitudService: ProveedorService,
     private activaRouter: ActivatedRoute
   ) {
     //tener el id parametro
@@ -24,7 +26,7 @@ export class ProductoCrearComponent {
         .get(Number(activaRouter.snapshot.paramMap.get('id')))
         .subscribe({
           next: (resp) => {
-            this.producto = resp.data as Producto;
+            this.proveedor = resp.data as Proveedor;
             this.cargando = false;
             //this.solicitud = new Solicitud(resp.data.id, resp.data.titulo_corto, resp.data.descripcion, 0);
           },
@@ -34,30 +36,39 @@ export class ProductoCrearComponent {
           },
         });
     } else {
-      this.producto = new Producto(-1, '', '', 0.0, 0, '');
+      this.proveedor = new Proveedor(-1, '', '', '','');
+    }
+  }
+  soloNumeros(event: any): void {
+    const pattern = /[0-9]/;
+
+    if (!pattern.test(event.key)) {
+      // Si el carácter ingresado no es un número, evita que se agregue al valor del campo
+      event.preventDefault();
     }
   }
   submit() {
     //servidor.crearSolicitud(this.solicitud);
-    //this.producto.ProductoID = 1;
-    if (this.producto.ProductoID < 0) {
-      this.solicitudService.create(this.producto).subscribe({
+    //this.venta.VentaID = 1;
+    if (this.proveedor.ProveedorID < 0) {
+      this.solicitudService.create(this.proveedor).subscribe({
         next: (resp) => {
           console.log(resp);
-          this.mensaje = 'Solicitud Creada';
+          this.mensaje = 'Proveedor Agregado';
         },
         error: (err) => {
           console.log(err.error.msg);
+          this.mensaje = 'Error al agregar Proveedor';
           this.mensaje = err.error.msg;
         },
       });
     } else {
       this.solicitudService
-        .update(this.producto.ProductoID, this.producto)
+        .update(this.proveedor.ProveedorID, this.proveedor)
         .subscribe({
           next: (resp) => {
             console.log(resp);
-            this.mensaje = 'Solicitud Actualizada';
+            this.mensaje = 'Proveedor Actualizado';
           },
           error: (err) => {
             console.log(err.error.msg);

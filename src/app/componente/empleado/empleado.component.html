@@ -1,6 +1,4 @@
-<div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
-    {{mensaje}}
-</div>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -9,6 +7,7 @@
             <td>Apellido</td>
             <td>Posicion</td>
             <td>FechaContratacion</td>
+            <td>Acciones</td>
         </tr>
     </thead>
     <tbody>
@@ -29,9 +28,13 @@
         </tr>
 
     </tbody>
-    <div class="card">
-        <div class="card-body">
-          <a href="/crear-empleado" class="btn btn-info m-2">Agregar</a> 
-        </div>
-    </div>
+
 </table>
+<div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
+    {{mensaje}}
+</div>
+<div class="card">
+    <div class="card-body d-grid gap-2">
+      <a href="/crear-empleado" class="btn btn-info m-2">Agregar</a> 
+    </div>
+</div>

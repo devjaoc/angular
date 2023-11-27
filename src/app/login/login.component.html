@@ -1,16 +1,33 @@
-<div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
-  {{mensaje}}
-</div>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email</label>
-      <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<section class="text-center text-lg-start mt-5">
+
+  <div class="card mb-3 px-5 py-5 bg-dark" id="loginCard">
+    <div class="row g-0 d-flex align-items-center ">
+      <div class="col-lg-4 d-none d-lg-flex">
+        <img
+          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F3o6Mb9rUQ5v4ZnBbzO%2Fgiphy.gif&f=1&nofb=1&ipt=12b874adc52903de0f88a373457e5940e366b82464eef551e01cf4a92e25c193&ipo=images"
+          alt="Trendy Pants and Shoes" class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+      </div>
+      <div class="col-lg-8">
+        <div class="card-body py-5 px-md-5">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Enter email" />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Contraseña</label>
+              <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
+                placeholder="Password" />
+            </div>
+            <div class="form-group form-check"></div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Contraseña</label>
-      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <div class="alert alert-primary mt-4" role="alert" *ngIf="mensaje != null">
+      {{ mensaje }}
     </div>
-    <div class="form-group form-check">  
-    </div>
-    <button type="submit" class="btn btn-primary">Entrar</button>
-  </form>
+  </div>
+</section>

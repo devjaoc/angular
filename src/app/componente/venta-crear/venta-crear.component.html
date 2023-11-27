@@ -1,29 +1,52 @@
 <div class="container">
     <div *ngIf="!cargando">
-        <h1> {{venta.VentaID<0?'Crear nueva solicitud':'Editar solicitud'+venta.VentaID}}</h1>
-    
-    <div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
-        {{mensaje}}
-    </div>
-
-    <form (ngSubmit)="submit()" #forma="ngForm">
-        <div class="col-md-6">
-            <label for="Fecha" class="form-label">Fecha</label>
-            <input type="text" class="form-control" id="Fecha" aria-describedby="Fecha"
-                [(ngModel)]="venta.Fecha" #Fecha="ngModel" name="Fecha" [ngClass]="{'is-valid':!Fecha.invalid,'is-invalid':Fecha.invalid}">
-        </div>
-        <div class="col-md-6">
-            <label for="Total" class="form-label">Total</label>
-            <input type="text" class="form-control" id="Total" aria-describedby="Total"
-                [(ngModel)]="venta.Total" #Total="ngModel" name="Total" [ngClass]="{'is-valid':!Total.invalid,'is-invalid':Total.invalid}">
-        </div>
-        <div class="row">
-            <div class="col-12 mt-4">
-                <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">                   
-                    {{venta.VentaID<0?'Agregar':'Actualizar'}}
-                </button>
+        <section class="text-center text-lg-start">
+            <div class="card px-5 bg-dark">
+                <div class="row g-0 d-flex align-items-center ">
+                    <div class="col-lg-8">
+                        <div class="card-body py-5">
+                            <form (ngSubmit)="submit()" #forma="ngForm">
+                                <h1> {{venta.VentaID<0?'Crear nueva Venta':'Editar Venta'+venta.VentaID}}</h1>
+                                        <div class="col-md-9">
+                                            <label for="Fecha" class="form-label">Fecha</label>
+                                            <input type="date" min="2018-01-01" max="2018-12-31" class="form-control" id="Fecha" aria-describedby="Fecha"
+                                                [(ngModel)]="venta.Fecha" #Fecha="ngModel" name="Fecha"
+                                                [ngClass]="{'is-valid':!Fecha.invalid,'is-invalid':Fecha.invalid}">
+                                        </div>
+                                        <div class="col-md-9">
+                                            <label for="Total" class="form-label">Total</label>
+                                            <input type="text" class="form-control" id="Total" aria-describedby="Total"
+                                                [(ngModel)]="venta.Total" #Total="ngModel" name="Total"
+                                                [ngClass]="{'is-valid':!Total.invalid,'is-invalid':Total.invalid}"> 
+                                        </div>
+                                        <div class="col-md-9">
+                                            <label for="Total" class="form-label">Selecciona el producto</label>
+                                            <select name="ProductoID" id="ProductoID">
+                                                <option value="productoid">Sony Audífonos inalámbricos WH-CH720N]</option>
+                                                <option value="productoid">Lenovo ThinkPad P16s 2da Gen (16”, Intel)</option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mt-4">
+                                                <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">
+                                                    {{venta.VentaID<0?'Agregar':'Actualizar'}} </button>
+                                            </div>
+                                        </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-none d-lg-flex card px-5 bg-dark border-0">
+                        <h1>Imagen</h1>
+                        <div>
+                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F3o6Mb9rUQ5v4ZnBbzO%2Fgiphy.gif&f=1&nofb=1&ipt=12b874adc52903de0f88a373457e5940e366b82464eef551e01cf4a92e25c193&ipo=images"
+                            alt="Trendy Pants and Shoes" class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
+            <div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">ta
+                {{mensaje}}
+            </div>
+        </section>
+    </div>
 </div>
